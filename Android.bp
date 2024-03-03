@@ -25,7 +25,10 @@ android_app {
         enabled: false,
     },
 
-    srcs: ["src/**/*.java"],
+    srcs: [
+        "src/**/*.kt",
+        "src/**/*.java",
+    ],
 
     platform_apis: true,
 }
