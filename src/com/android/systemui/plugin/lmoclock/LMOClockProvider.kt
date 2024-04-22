@@ -14,7 +14,6 @@ import com.android.systemui.plugins.clocks.ClockProviderPlugin
 import com.android.systemui.plugins.clocks.ClockMetadata
 import com.android.systemui.plugins.clocks.ClockSettings
 import com.android.systemui.plugins.annotations.Requires
-//import com.android.systemui.plugin.lmoclock.LMOClockController
 
 private val TAG = LMOClockProvider::class.simpleName
 const val LMO_CLOCK_ID = "LMOClock"
@@ -43,6 +42,7 @@ class LMOClockProvider(
             migratedClocks,
         )
     }
+
     override fun getClockThumbnail(id: ClockId): Drawable? {
         if (id != LMO_CLOCK_ID) {
             throw IllegalArgumentException("$id is unsupported by $TAG")

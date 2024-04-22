@@ -16,16 +16,16 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.systemui.plugin.lmoclock">
+    package="com.android.systemui.clocks.lmoclock">
 
     <uses-permission android:name="com.android.systemui.permission.PLUGIN" />
 
     <application>
-        <service android:name=".LMOClockProvider"
-                 android:label="@string/plugin_label"
-                 android:exported="false">
+        <service android:name="com.android.systemui.clocks.LMOClockProvider"
+                 android:exported="true"
+                 android:directBootAware="true">
             <intent-filter>
-                <action android:name="com.android.systemui.action.PLUGIN_OVERLAY" />
+                 <action android:name="com.android.systemui.action.PLUGIN_CLOCK_PROVIDER"/>
             </intent-filter>
         </service>
         <receiver

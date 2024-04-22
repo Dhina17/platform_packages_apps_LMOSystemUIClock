@@ -18,7 +18,6 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="plugin_settings_here" translatable="false">Plugin settings go here</string>
-    <string name="plugin_label" translatable="false">Overlay Plugin</string>
+    <string name="plugin_label" translatable="false">LMO Clock Plugin</string>
 
 </resources>
