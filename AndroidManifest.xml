@@ -16,12 +16,12 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.systemui.clocks.lmoclock">
+    package="com.android.systemui.plugin.lmoclock">
 
     <uses-permission android:name="com.android.systemui.permission.PLUGIN" />
 
     <application>
-        <service android:name="com.android.systemui.clocks.LMOClockProvider"
+        <service android:name=".LMOClockProvider"
                  android:label="@string/plugin_label"
                  android:exported="false">
             <intent-filter>
@@ -48,4 +48,5 @@
             </intent-filter>
         </receiver>
     </application>
+
 </manifest>
