@@ -32,7 +32,7 @@ import com.android.app.animation.Interpolators
 import com.android.internal.annotations.VisibleForTesting
 import com.android.systemui.animation.GlyphCallback
 import com.android.systemui.animation.TextAnimator
-import com.android.systemui.customization.R
+import com.android.systemui.clocks.R
 import com.android.systemui.log.core.Logger
 import com.android.systemui.log.core.MessageBuffer
 import java.io.PrintWriter
@@ -45,7 +45,7 @@ import java.util.TimeZone
  * The time's text color is a gradient that changes its colors based on its controller.
  */
 @SuppressLint("AppCompatCustomView")
-class AnimatableClockView @JvmOverloads constructor(
+class AnimatableClock @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
@@ -98,20 +98,20 @@ class AnimatableClockView @JvmOverloads constructor(
 
     init {
         val animatableClockViewAttributes = context.obtainStyledAttributes(
-            attrs, R.styleable.AnimatableClockView, defStyleAttr, defStyleRes
+            attrs, R.styleable.AnimatableClock, defStyleAttr, defStyleRes
         )
 
         try {
             dozingWeightInternal = animatableClockViewAttributes.getInt(
-                R.styleable.AnimatableClockView_dozeWeight,
+                R.styleable.AnimatableClock_dozeWeight,
                 100
             )
             lockScreenWeightInternal = animatableClockViewAttributes.getInt(
-                R.styleable.AnimatableClockView_lockScreenWeight,
+                R.styleable.AnimatableClock_lockScreenWeight,
                 300
             )
             chargeAnimationDelay = animatableClockViewAttributes.getInt(
-                R.styleable.AnimatableClockView_chargeAnimationDelay, 200
+                R.styleable.AnimatableClock_chargeAnimationDelay, 200
             )
         } finally {
             animatableClockViewAttributes.recycle()
@@ -551,7 +551,7 @@ class AnimatableClockView @JvmOverloads constructor(
     }
 
     companion object {
-        private val TAG = AnimatableClockView::class.simpleName!!
+        private val TAG = AnimatableClock::class.simpleName!!
         const val ANIMATION_DURATION_FOLD_TO_AOD: Int = 600
         private const val DOUBLE_LINE_FORMAT_12_HOUR = "hh\nmm"
         private const val DOUBLE_LINE_FORMAT_24_HOUR = "HH\nmm"

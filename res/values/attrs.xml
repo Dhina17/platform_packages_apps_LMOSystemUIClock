@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnimatableClock">
+        <attr name="dozeWeight" format="integer" />
+        <attr name="lockScreenWeight" format="integer" />
+        <attr name="chargeAnimationDelay" format="integer" />
+    </declare-styleable>
+</resources>

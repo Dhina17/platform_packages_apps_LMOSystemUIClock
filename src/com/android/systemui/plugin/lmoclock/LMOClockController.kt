@@ -23,7 +23,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.VisibleForTesting
-import com.android.systemui.customization.R
+import com.android.systemui.clocks.R
 import com.android.systemui.log.core.MessageBuffer
 import com.android.systemui.plugins.clocks.AlarmData
 import com.android.systemui.plugins.clocks.ClockAnimations
@@ -46,7 +46,7 @@ private val TAG = LMOClockController::class.simpleName
 /**
  * Controls the default clock visuals.
  *
- * This serves as an adapter between the clock interface and the AnimatableClockView used by the
+ * This serves as an adapter between the clock interface and the AnimatableClock used by the
  * existing lockscreen clock.
  */
 class LMOClockController(
@@ -59,7 +59,7 @@ class LMOClockController(
 ) : ClockController {
     override val smallClock: DefaultClockFaceController
     override val largeClock: LargeClockFaceController
-    private val clocks: List<AnimatableClockView>
+    private val clocks: List<AnimatableClock>
 
     private val burmeseNf = NumberFormat.getInstance(Locale.forLanguageTag("my"))
     private val burmeseNumerals = burmeseNf.format(FORMAT_NUMBER.toLong())
@@ -81,14 +81,14 @@ class LMOClockController(
         val parent = FrameLayout(ctx)
         smallClock =
             DefaultClockFaceController(
-                layoutInflater.inflate(R.layout.clock_default_small, parent, false)
-                    as AnimatableClockView,
+                layoutInflater.inflate(R.layout.clock_small, parent, false)
+                    as AnimatableClock,
                 settings?.seedColor
             )
         largeClock =
             LargeClockFaceController(
-                layoutInflater.inflate(R.layout.clock_default_large, parent, false)
-                    as AnimatableClockView,
+                layoutInflater.inflate(R.layout.clock_large, parent, false)
+                    as AnimatableClock,
                 settings?.seedColor
             )
         clocks = listOf(smallClock.view, largeClock.view)
@@ -108,7 +108,7 @@ class LMOClockController(
     }
 
     open inner class DefaultClockFaceController(
-        override val view: AnimatableClockView,
+        override val view: AnimatableClock,
         var seedColor: Int?,
     ) : ClockFaceController {
 
@@ -186,7 +186,7 @@ class LMOClockController(
     }
 
     inner class LargeClockFaceController(
-        view: AnimatableClockView,
+        view: AnimatableClock,
         seedColor: Int?,
     ) : DefaultClockFaceController(view, seedColor) {
         override val layout = DefaultClockFaceLayout(view)
@@ -219,7 +219,7 @@ class LMOClockController(
             view.setLayoutParams(lp)
         }
 
-        /** See documentation at [AnimatableClockView.offsetGlyphsForStepClockAnimation]. */
+        /** See documentation at [AnimatableClock.offsetGlyphsForStepClockAnimation]. */
         fun offsetGlyphsForStepClockAnimation(fromLeft: Int, direction: Int, fraction: Float) {
             view.offsetGlyphsForStepClockAnimation(fromLeft, direction, fraction)
         }
@@ -262,7 +262,7 @@ class LMOClockController(
     }
 
     open inner class DefaultClockAnimations(
-        val view: AnimatableClockView,
+        val view: AnimatableClock,
         dozeFraction: Float,
         foldFraction: Float,
     ) : ClockAnimations {
@@ -310,7 +310,7 @@ class LMOClockController(
     }
 
     inner class LargeClockAnimations(
-        view: AnimatableClockView,
+        view: AnimatableClock,
         dozeFraction: Float,
         foldFraction: Float,
     ) : DefaultClockAnimations(view, dozeFraction, foldFraction) {

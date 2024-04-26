@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
-import com.android.systemui.customization.R
+import com.android.systemui.clocks.R
 
 import android.view.ViewTreeObserver.InternalInsetsInfo
 import android.view.ViewTreeObserver.OnComputeInternalInsetsListener
@@ -28,6 +28,8 @@ class LMOClockProvider : ClockProviderPlugin {
 
     override fun onCreate(context: Context, plugin: Context) {
         ctx = plugin
+        layoutInflater = LayoutInflater.from(ctx)
+        resources = ctx.resources
     }
 
     override fun getClocks(): List<ClockMetadata> = listOf(ClockMetadata(LMO_CLOCK_ID))
