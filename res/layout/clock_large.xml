@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.android.systemui.clocks.AnimatableClock
+<com.android.systemui.clocks.lmoclock.AnimatableClock
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center_horizontal"
     android:textSize="12dp"
-    android:fontFamily="@*android:string/config_clockFontFamily"
-    android:typeface="monospace"
     android:elegantTextHeight="false"
     chargeAnimationDelay="200"
     dozeWeight="200"

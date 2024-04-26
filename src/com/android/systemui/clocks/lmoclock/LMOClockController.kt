@@ -15,14 +15,17 @@ package com.android.systemui.clocks.lmoclock
 
 import android.content.Context
 import android.content.res.Resources
+//import android.content.res.Resources
 import android.graphics.Color
 import android.graphics.Rect
 import android.icu.text.NumberFormat
 import android.util.TypedValue
+import  com.android.systemui.clocks.lmoclock.R
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.VisibleForTesting
+import androidx.core.content.ContextCompat
 import com.android.systemui.log.core.MessageBuffer
 import com.android.systemui.plugins.clocks.AlarmData
 import com.android.systemui.plugins.clocks.ClockAnimations
@@ -50,44 +53,46 @@ private val TAG = LMOClockController::class.simpleName
  */
 class LMOClockController(
     ctx: Context,
-    private val layoutInflater: LayoutInflater,
-    private val resources: Resources,
+    private var layoutInflater: LayoutInflater,
     private val settings: ClockSettings?,
     private val hasStepClockAnimation: Boolean = false,
     private val migratedClocks: Boolean = false,
 ) : ClockController {
+    private lateinit var resources: R
+
     override val smallClock: DefaultClockFaceController
     override val largeClock: LargeClockFaceController
     private val clocks: List<AnimatableClock>
 
     private val burmeseNf = NumberFormat.getInstance(Locale.forLanguageTag("my"))
     private val burmeseNumerals = burmeseNf.format(FORMAT_NUMBER.toLong())
-    private val burmeseLineSpacing =
-        resources.getFloat(com.android.systemui.customization.R.dimen.keyguard_clock_line_spacing_scale_burmese)
-    private val defaultLineSpacing = resources.getFloat(com.android.systemui.customization.R.dimen.keyguard_clock_line_spacing_scale)
+    private val burmeseLineSpacing = 1f
+    private val defaultLineSpacing = 7f
     protected var onSecondaryDisplay: Boolean = false
 
     override val events: DefaultClockEvents
     override val config: ClockConfig by lazy {
         ClockConfig(
             "LMOClock",
-            resources.getString(com.android.systemui.customization.R.string.clock_default_name),
-            resources.getString(com.android.systemui.customization.R.string.clock_default_description)
+            "Default",
+            "Digital default"
         )
     }
 
     init {
         val parent = FrameLayout(ctx)
+        layoutInflater = LayoutInflater.from(ctx)
+
         smallClock =
             DefaultClockFaceController(
                 layoutInflater.inflate(R.layout.clock_small, parent, false)
-                    as AnimatableClock,
+                    as com.android.systemui.clocks.lmoclock.AnimatableClock,
                 settings?.seedColor
             )
         largeClock =
             LargeClockFaceController(
                 layoutInflater.inflate(R.layout.clock_large, parent, false)
-                    as AnimatableClock,
+                    as com.android.systemui.clocks.lmoclock.AnimatableClock,
                 settings?.seedColor
             )
         clocks = listOf(smallClock.view, largeClock.view)
@@ -100,14 +105,14 @@ class LMOClockController(
         largeClock.recomputePadding(null)
         largeClock.animations = LargeClockAnimations(largeClock.view, dozeFraction, foldFraction)
         smallClock.animations = DefaultClockAnimations(smallClock.view, dozeFraction, foldFraction)
-        events.onColorPaletteChanged(resources)
+//        events.onColorPaletteChanged(resources)
         events.onTimeZoneChanged(TimeZone.getDefault())
         smallClock.events.onTimeTick()
         largeClock.events.onTimeTick()
     }
 
     open inner class DefaultClockFaceController(
-        override val view: AnimatableClock,
+        override val view: com.android.systemui.clocks.lmoclock.AnimatableClock,
         var seedColor: Int?,
     ) : ClockFaceController {
 
@@ -141,7 +146,7 @@ class LMOClockController(
 
                 override fun onRegionDarknessChanged(isRegionDark: Boolean) {
                     this@DefaultClockFaceController.isRegionDark = isRegionDark
-                    updateColor()
+//                    updateColor()
                 }
 
                 override fun onTargetRegionChanged(targetRegion: Rect?) {
@@ -162,30 +167,31 @@ class LMOClockController(
 
         open fun recomputePadding(targetRegion: Rect?) {}
 
-        fun updateColor() {
-            val color =
-                if (seedColor != null) {
-                    seedColor!!
-                } else if (isRegionDark) {
-                    resources.getColor(android.R.color.system_accent1_100)
-                } else {
-                    resources.getColor(android.R.color.system_accent2_600)
-                }
-
-            if (currentColor == color) {
-                return
-            }
-
-            currentColor = color
-            view.setColors(DOZE_COLOR, color)
-            if (!animations.dozeState.isActive) {
-                view.animateColorChange()
-            }
-        }
+//        fun updateColor() {
+//            val color =
+//                if (seedColor != null) {
+//                    seedColor!!
+//                } else if (isRegionDark) {
+//                    ContextCompat.getColor(this@LMOClockController, R.color.system_accent1_100)
+//                    resources.getColor(android.R.color.system_accent1_100)
+//                } else {
+//                    resources.getColor(android.R.color.system_accent2_600)
+//                }
+//
+//            if (currentColor == color) {
+//                return
+//            }
+//
+//            currentColor = color
+//            view.setColors(DOZE_COLOR, color)
+//            if (!animations.dozeState.isActive) {
+//                view.animateColorChange()
+//            }
+//        }
     }
 
     inner class LargeClockFaceController(
-        view: AnimatableClock,
+        view: com.android.systemui.clocks.lmoclock.AnimatableClock,
         seedColor: Int?,
     ) : DefaultClockFaceController(view, seedColor) {
         override val layout = DefaultClockFaceLayout(view)
@@ -232,16 +238,16 @@ class LMOClockController(
             clocks.forEach { it.onTimeZoneChanged(timeZone) }
 
         override fun onColorPaletteChanged(resources: Resources) {
-            largeClock.updateColor()
-            smallClock.updateColor()
+//            largeClock.updateColor()
+//            smallClock.updateColor()
         }
 
         override fun onSeedColorChanged(seedColor: Int?) {
             largeClock.seedColor = seedColor
             smallClock.seedColor = seedColor
 
-            largeClock.updateColor()
-            smallClock.updateColor()
+//            largeClock.updateColor()
+//            smallClock.updateColor()
         }
 
         override fun onLocaleChanged(locale: Locale) {
@@ -261,7 +267,7 @@ class LMOClockController(
     }
 
     open inner class DefaultClockAnimations(
-        val view: AnimatableClock,
+        val view: com.android.systemui.clocks.lmoclock.AnimatableClock,
         dozeFraction: Float,
         foldFraction: Float,
     ) : ClockAnimations {
@@ -309,7 +315,7 @@ class LMOClockController(
     }
 
     inner class LargeClockAnimations(
-        view: AnimatableClock,
+        view: com.android.systemui.clocks.lmoclock.AnimatableClock,
         dozeFraction: Float,
         foldFraction: Float,
     ) : DefaultClockAnimations(view, dozeFraction, foldFraction) {

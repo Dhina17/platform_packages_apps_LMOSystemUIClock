@@ -117,13 +117,13 @@ class AnimatableClock @JvmOverloads constructor(
         }
 
         val textViewAttributes = context.obtainStyledAttributes(
-            attrs, android.R.styleable.TextView,
+            attrs, R.styleable.TextViiew,
             defStyleAttr, defStyleRes
         )
 
         isSingleLineInternal =
             try {
-                textViewAttributes.getBoolean(android.R.styleable.TextView_singleLine, false)
+                textViewAttributes.getBoolean(R.styleable.TextViiew_singleLine, false)
             } finally {
                 textViewAttributes.recycle()
             }
@@ -529,9 +529,8 @@ class AnimatableClock @JvmOverloads constructor(
 
         fun update(context: Context) {
             val locale = Locale.getDefault()
-            val res = context.resources
-            val clockView12Skel = res.getString(com.android.systemui.customization.R.string.clock_12hr_format)
-            val clockView24Skel = res.getString(com.android.systemui.customization.R.string.clock_24hr_format)
+            val clockView12Skel = context.getString(R.string.cloock_12hr_format)
+            val clockView24Skel = context.getString(R.string.cloock_24hr_format)
             val key = locale.toString() + clockView12Skel + clockView24Skel
             if (key == sCacheKey) return
 

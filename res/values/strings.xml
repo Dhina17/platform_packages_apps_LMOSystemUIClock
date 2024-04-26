@@ -20,4 +20,10 @@
 
     <string name="plugin_label" translatable="false">LMO Clock Plugin</string>
 
+    <!-- Skeleton string format for displaying the time in 12-hour format. -->
+    <string name="cloock_12hr_format" translatable="false">hm</string>
+
+    <!-- Skeleton string format for displaying the time in 24-hour format. -->
+    <string name="cloock_24hr_format" translatable="false">Hm</string>
+
 </resources>

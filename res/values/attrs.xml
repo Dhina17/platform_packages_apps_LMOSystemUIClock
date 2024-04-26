@@ -5,4 +5,7 @@
         <attr name="lockScreenWeight" format="integer" />
         <attr name="chargeAnimationDelay" format="integer" />
     </declare-styleable>
+    <declare-styleable name="TextViiew">
+        <attr name="singleLine" format="boolean" />
+    </declare-styleable>
 </resources>
