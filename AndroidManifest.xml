@@ -21,7 +21,7 @@
     <uses-permission android:name="com.android.systemui.permission.PLUGIN" />
 
     <application>
-        <service android:name="com.android.systemui.clocks.LMOClockProvider"
+        <service android:name="com.android.systemui.clocks.lmoclock.LMOClockProvider"
                  android:exported="true"
                  android:directBootAware="true">
             <intent-filter>
