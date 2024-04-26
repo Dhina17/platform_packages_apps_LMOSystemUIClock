@@ -19,13 +19,16 @@ private val TAG = LMOClockProvider::class.simpleName
 const val LMO_CLOCK_ID = "LMOClock"
 
 @Requires(target = ClockProviderPlugin::class, version = ClockProviderPlugin.VERSION)
-class LMOClockProvider(
-    val ctx: Context,
-    val layoutInflater: LayoutInflater,
-    val resources: Resources,
-    val hasStepClockAnimation: Boolean = false,
-    val migratedClocks: Boolean = false
-) : ClockProviderPlugin {
+class LMOClockProvider : ClockProviderPlugin {
+    private lateinit var ctx: Context
+    private lateinit var layoutInflater: LayoutInflater
+    private lateinit var resources: Resources
+    private val hasStepClockAnimation: Boolean = false
+    private val migratedClocks: Boolean = false
+
+    override fun onCreate(context: Context, plugin: Context) {
+        ctx = plugin
+    }
 
     override fun getClocks(): List<ClockMetadata> = listOf(ClockMetadata(LMO_CLOCK_ID))
 
@@ -44,10 +47,6 @@ class LMOClockProvider(
     }
 
     override fun getClockThumbnail(id: ClockId): Drawable? {
-        if (id != LMO_CLOCK_ID) {
-            throw IllegalArgumentException("$id is unsupported by $TAG")
-        }
-        // TODO: Update placeholder to actual resource
         return resources.getDrawable(R.drawable.clock_default_thumbnail, null)
     }
 
