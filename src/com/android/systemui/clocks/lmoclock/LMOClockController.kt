@@ -63,16 +63,16 @@ class LMOClockController(
     private val burmeseNf = NumberFormat.getInstance(Locale.forLanguageTag("my"))
     private val burmeseNumerals = burmeseNf.format(FORMAT_NUMBER.toLong())
     private val burmeseLineSpacing =
-        resources.getFloat(R.dimen.keyguard_clock_line_spacing_scale_burmese)
-    private val defaultLineSpacing = resources.getFloat(R.dimen.keyguard_clock_line_spacing_scale)
+        resources.getFloat(com.android.systemui.customization.R.dimen.keyguard_clock_line_spacing_scale_burmese)
+    private val defaultLineSpacing = resources.getFloat(com.android.systemui.customization.R.dimen.keyguard_clock_line_spacing_scale)
     protected var onSecondaryDisplay: Boolean = false
 
     override val events: DefaultClockEvents
     override val config: ClockConfig by lazy {
         ClockConfig(
             "LMOClock",
-            resources.getString(R.string.clock_default_name),
-            resources.getString(R.string.clock_default_description)
+            resources.getString(com.android.systemui.customization.R.string.clock_default_name),
+            resources.getString(com.android.systemui.customization.R.string.clock_default_description)
         )
     }
 

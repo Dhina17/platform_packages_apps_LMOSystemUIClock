@@ -530,8 +530,8 @@ class AnimatableClock @JvmOverloads constructor(
         fun update(context: Context) {
             val locale = Locale.getDefault()
             val res = context.resources
-            val clockView12Skel = res.getString(R.string.clock_12hr_format)
-            val clockView24Skel = res.getString(R.string.clock_24hr_format)
+            val clockView12Skel = res.getString(com.android.systemui.customization.R.string.clock_12hr_format)
+            val clockView24Skel = res.getString(com.android.systemui.customization.R.string.clock_24hr_format)
             val key = locale.toString() + clockView12Skel + clockView24Skel
             if (key == sCacheKey) return
 
