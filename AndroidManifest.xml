@@ -19,8 +19,12 @@
     package="com.android.systemui.clocks.lmoclock">
 
     <uses-permission android:name="com.android.systemui.permission.PLUGIN" />
-
-    <application>
+    <permission
+        android:name="com.android.systemui.clocks.lmoclock.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.android.systemui.clocks.lmoclock.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <application
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory">
         <service android:name="com.android.systemui.clocks.lmoclock.LMOClockProvider"
                  android:exported="true"
                  android:directBootAware="true">

@@ -28,6 +28,7 @@ import android.text.format.DateFormat
 import android.util.AttributeSet
 import android.util.MathUtils.constrainedMap
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView
 import com.android.app.animation.Interpolators
 import com.android.internal.annotations.VisibleForTesting
 import com.android.systemui.animation.GlyphCallback
@@ -43,13 +44,14 @@ import java.util.TimeZone
  * Displays the time with the hour positioned above the minutes. (ie: 09 above 30 is 9:30)
  * The time's text color is a gradient that changes its colors based on its controller.
  */
+
 @SuppressLint("AppCompatCustomView")
 class AnimatableClock @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
     defStyleRes: Int = 0
-) : TextView(context, attrs, defStyleAttr, defStyleRes) {
+) : AppCompatTextView(context, attrs, defStyleAttr) {
     var messageBuffer: MessageBuffer? = null
         set(value) {
             logger = if (value != null) Logger(value, TAG) else null
@@ -77,11 +79,15 @@ class AnimatableClock @JvmOverloads constructor(
     private var textAnimator: TextAnimator? = null
     private var onTextAnimatorInitialized: Runnable? = null
 
-    @VisibleForTesting var textAnimatorFactory: (Layout, () -> Unit) -> TextAnimator =
+    @VisibleForTesting
+    var textAnimatorFactory: (Layout, () -> Unit) -> TextAnimator =
         { layout, invalidateCb ->
-            TextAnimator(layout, NUM_CLOCK_FONT_ANIMATION_STEPS, invalidateCb) }
-    @VisibleForTesting var isAnimationEnabled: Boolean = true
-    @VisibleForTesting var timeOverrideInMillis: Long? = null
+            TextAnimator(layout, NUM_CLOCK_FONT_ANIMATION_STEPS, invalidateCb)
+        }
+    @VisibleForTesting
+    var isAnimationEnabled: Boolean = true
+    @VisibleForTesting
+    var timeOverrideInMillis: Long? = null
 
     val dozingWeight: Int
         get() = if (useBoldedVersion()) dozingWeightInternal + 100 else dozingWeightInternal
@@ -209,10 +215,10 @@ class AnimatableClock @JvmOverloads constructor(
     }
 
     override fun onTextChanged(
-            text: CharSequence,
-            start: Int,
-            lengthBefore: Int,
-            lengthAfter: Int
+        text: CharSequence,
+        start: Int,
+        lengthBefore: Int,
+        lengthAfter: Int
     ) {
         super.onTextChanged(text, start, lengthBefore, lengthAfter)
         logger?.d({ "onTextChanged text=$str1" }) { str1 = text.toString() }
@@ -487,9 +493,9 @@ class AnimatableClock @JvmOverloads constructor(
      *   means it finished moving.
      */
     fun offsetGlyphsForStepClockAnimation(
-            clockStartLeft: Int,
-            clockMoveDirection: Int,
-            moveFraction: Float
+        clockStartLeft: Int,
+        clockMoveDirection: Int,
+        moveFraction: Float
     ) {
         val isMovingToCenter = if (isLayoutRtl) clockMoveDirection < 0 else clockMoveDirection > 0
         val currentMoveAmount = left - clockStartLeft
@@ -498,21 +504,21 @@ class AnimatableClock @JvmOverloads constructor(
             // The delay for the digit, in terms of fraction (i.e. the digit should not move
             // during 0.0 - 0.1).
             val digitInitialDelay =
-                    if (isMovingToCenter) {
-                        moveToCenterDelays[i] * MOVE_DIGIT_STEP
-                    } else {
-                        moveToSideDelays[i] * MOVE_DIGIT_STEP
-                    }
+                if (isMovingToCenter) {
+                    moveToCenterDelays[i] * MOVE_DIGIT_STEP
+                } else {
+                    moveToSideDelays[i] * MOVE_DIGIT_STEP
+                }
             val digitFraction =
-                    MOVE_INTERPOLATOR.getInterpolation(
-                            constrainedMap(
-                                    0.0f,
-                                    1.0f,
-                                    digitInitialDelay,
-                                    digitInitialDelay + AVAILABLE_ANIMATION_TIME,
-                                    moveFraction
-                            )
+                MOVE_INTERPOLATOR.getInterpolation(
+                    constrainedMap(
+                        0.0f,
+                        1.0f,
+                        digitInitialDelay,
+                        digitInitialDelay + AVAILABLE_ANIMATION_TIME,
+                        moveFraction
                     )
+                )
             val moveAmountForDigit = currentMoveAmount * digitFraction
             val moveAmountDeltaForDigit = moveAmountForDigit - currentMoveAmount
             glyphOffsets[i] = digitOffsetDirection * moveAmountDeltaForDigit
