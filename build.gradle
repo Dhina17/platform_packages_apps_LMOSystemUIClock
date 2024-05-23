@@ -42,7 +42,7 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdk 34
-    namespace 'com.android.systemui.clocks.lmoclock'
+    namespace 'com.android.systemui.plugin.libremobileos.clock'
 
     defaultConfig {
         minSdk 34
