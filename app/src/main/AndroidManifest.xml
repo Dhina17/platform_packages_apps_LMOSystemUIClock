@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.libremobileos.clock">
+
+    <uses-permission android:name="com.android.systemui.permission.PLUGIN" />
 
     <application
         android:icon="@mipmap/ic_launcher"
@@ -7,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LMOClock">
-
+        <service android:name="com.libremobileos.clock.LMOClockProvider"
+            android:exported="false"
+            android:directBootAware="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="com.android.systemui.action.PLUGIN_CLOCK_PROVIDER" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
