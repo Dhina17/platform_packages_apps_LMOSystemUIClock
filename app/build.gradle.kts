@@ -38,11 +38,16 @@ android {
         jvmTarget = "1.8"
     }
     signingConfigs {
-        create("config") {
+        getByName("debug") {
             keyAlias = keystoreProperties["keyAlias"] as String
             keyPassword = keystoreProperties["keyPassword"] as String
             storeFile = file(keystoreProperties["storeFile"] as String)
             storePassword = keystoreProperties["storePassword"] as String
+        }
+    }
+    configurations {
+        all { // You should exclude one of them not both of them
+            exclude(group = "com.google.errorprone", module = "error_prone_annotations")
         }
     }
 }
@@ -50,9 +55,9 @@ android {
 dependencies {
 
     // System libs
-    compileOnly(files("libs/framework.jar"))
-    implementation(files("libs/SystemUISharedLib.jar"))
-    implementation(files("libs/SystemUI-statsd.jar"))
+    compileOnly(files("../system_libs/framework.jar"))
+    implementation(files("../system_libs/SystemUISharedLib.jar"))
+    implementation(files("../system_libs/SystemUI-statsd.jar"))
     implementation(project(":SystemUIAnimationLib"))
     implementation(project(":SystemUICustomizationLib"))
 
