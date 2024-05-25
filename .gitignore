@@ -49,8 +49,8 @@ captures/
 *.swp
 
 # Keystore files
-keystore.properties
-*.jks
+# keystore.properties
+# *.jks
 *.keystore
 
 # Google Services (e.g. APIs or Firebase)
