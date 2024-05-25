@@ -4,15 +4,16 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.android.systemui.plugin.libremobileos.clock">
 
     <uses-permission android:name="com.android.systemui.permission.PLUGIN" />
 
-    <application
-        android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+    <application>
         <service android:name="com.android.systemui.plugin.libremobileos.clock.LMOClockProvider"
             android:exported="false"
-            android:directBootAware="true">
+            android:directBootAware="true"
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="com.android.systemui.action.PLUGIN_CLOCK_PROVIDER" />
             </intent-filter>

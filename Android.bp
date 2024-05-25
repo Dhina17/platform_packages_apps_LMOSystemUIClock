@@ -23,7 +23,11 @@ android_app {
     ],
     static_libs: [
         "SystemUICustomizationLib",
+        "SystemUISharedLib",
+        "androidx.appcompat_appcompat",
     ],
     manifest: "AndroidManifest.xml",
     platform_apis: true,
+    system_ext_specific: true,
+    privileged: true,
 }
