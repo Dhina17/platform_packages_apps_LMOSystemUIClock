@@ -6,10 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import com.android.systemui.plugins.annotations.Requires
 import com.android.systemui.plugins.clocks.ClockController
+import com.android.systemui.plugins.clocks.ClockId
+import com.android.systemui.plugins.clocks.ClockMessageBuffers
 import com.android.systemui.plugins.clocks.ClockMetadata
 import com.android.systemui.plugins.clocks.ClockProviderPlugin
 import com.android.systemui.plugins.clocks.ClockSettings
-import com.android.systemui.shared.clocks.ClockId
 
 //private val TAG = LMOClockProvider::class.simpleName
 private val TAG = "dhina17test"
@@ -19,6 +20,8 @@ const val LMO_CLOCK_ID = "LMOClock"
 class LMOClockProvider : ClockProviderPlugin {
 
     private lateinit var pluginContext: Context
+
+    private var messageBuffers: ClockMessageBuffers? = null
 
     override fun onCreate(sysuiCtx: Context, pluginCtx: Context) {
         Log.i(TAG, "onCreate")
@@ -46,5 +49,9 @@ class LMOClockProvider : ClockProviderPlugin {
     override fun getClocks(): List<ClockMetadata> {
         Log.i(TAG, "getClocks")
         return listOf(ClockMetadata(LMO_CLOCK_ID))
+    }
+
+    override fun initialize(buffers: ClockMessageBuffers?) {
+        messageBuffers = buffers
     }
 }

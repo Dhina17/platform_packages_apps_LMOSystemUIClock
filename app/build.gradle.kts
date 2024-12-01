@@ -12,7 +12,7 @@ keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 
 android {
     namespace = "com.libremobileos.clock"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.libremobileos.clock"
@@ -56,10 +56,9 @@ dependencies {
 
     // System libs
     compileOnly(files("../system_libs/framework.jar"))
-    implementation(files("../system_libs/SystemUISharedLib.jar"))
-    implementation(files("../system_libs/SystemUI-statsd.jar"))
-    implementation(project(":SystemUIAnimationLib"))
-    implementation(project(":SystemUICustomizationLib"))
+    compileOnly(files("../system_libs/SystemUISharedLib.jar"))
+    compileOnly(files("../system_libs/SystemUI-statsd.jar"))
+    compileOnly(files("../system_libs/SystemUIPluginLib.jar"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

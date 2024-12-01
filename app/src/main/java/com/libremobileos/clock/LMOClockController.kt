@@ -8,7 +8,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.TextView
-import com.android.systemui.log.core.MessageBuffer
 import com.android.systemui.plugins.clocks.AlarmData
 import com.android.systemui.plugins.clocks.ClockAnimations
 import com.android.systemui.plugins.clocks.ClockConfig
@@ -98,7 +97,6 @@ class LMOClockController(
             }
 
         override val layout: ClockFaceLayout = DefaultClockFaceLayout(view)
-        override var messageBuffer: MessageBuffer? = null
 
         init {
             view.setTextColor(Color.MAGENTA)
@@ -129,8 +127,11 @@ class LMOClockController(
         }
 
         override fun onWeatherDataChanged(data: WeatherData) {}
+
         override fun onAlarmDataChanged(data: AlarmData) {}
         override fun onZenDataChanged(data: ZenData) {}
+
+        override var isReactiveTouchInteractionEnabled: Boolean = false
     }
 
     private inner class DefaultClockAnimations(
@@ -149,6 +150,10 @@ class LMOClockController(
         }
 
         override fun onPickerCarouselSwiping(swipingFraction: Float) {
+        }
+
+        override fun onPositionUpdated(distance: Float, fraction: Float) {
+
         }
 
         override fun onPositionUpdated(fromLeft: Int, direction: Int, fraction: Float) {}
