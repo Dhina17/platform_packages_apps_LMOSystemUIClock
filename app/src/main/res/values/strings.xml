@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">LMOClock</string>
+    <string name="lmo_clock_default_name">LMO Default</string>
+    <string name="lmo_clock_default_description">Digital default</string>
+
+    <!-- Skeleton string format for displaying the time in 12-hour format. -->
+    <string name="clock_12hr_format">hm</string>
+
+    <!-- Skeleton string format for displaying the time in 24-hour format. -->
+    <string name="clock_24hr_format">Hm</string>
 </resources>

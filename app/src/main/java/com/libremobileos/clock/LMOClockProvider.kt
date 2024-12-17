@@ -12,8 +12,7 @@ import com.android.systemui.plugins.clocks.ClockMetadata
 import com.android.systemui.plugins.clocks.ClockProviderPlugin
 import com.android.systemui.plugins.clocks.ClockSettings
 
-//private val TAG = LMOClockProvider::class.simpleName
-private val TAG = "dhina17test"
+private val TAG = LMOClockProvider::class.simpleName
 const val LMO_CLOCK_ID = "LMOClock"
 
 @Requires(target = ClockProviderPlugin::class, version = ClockProviderPlugin.VERSION)
@@ -21,37 +20,37 @@ class LMOClockProvider : ClockProviderPlugin {
 
     private lateinit var pluginContext: Context
 
-    private var messageBuffers: ClockMessageBuffers? = null
-
     override fun onCreate(sysuiCtx: Context, pluginCtx: Context) {
         Log.i(TAG, "onCreate")
         pluginContext = pluginCtx
     }
 
-    override fun createClock(settings: ClockSettings): ClockController {
-        Log.i(TAG, "createClock")
-        if (settings.clockId != LMO_CLOCK_ID) {
-            throw IllegalArgumentException("${settings.clockId} is unsupported by $TAG")
-        }
-
-        return LMOClockController(
-            pluginContext,
-            LayoutInflater.from(pluginContext)
-        )
-
-    }
-
-    override fun getClockThumbnail(id: ClockId): Drawable? {
-        Log.i(TAG, "getThumbnail")
-        return null
-    }
-
-    override fun getClocks(): List<ClockMetadata> {
-        Log.i(TAG, "getClocks")
-        return listOf(ClockMetadata(LMO_CLOCK_ID))
-    }
+    private var messageBuffers: ClockMessageBuffers? = null
 
     override fun initialize(buffers: ClockMessageBuffers?) {
         messageBuffers = buffers
+    }
+    override fun getClocks(): List<ClockMetadata> = listOf(ClockMetadata(LMO_CLOCK_ID))
+
+    override fun createClock(settings: ClockSettings): ClockController {
+        if (settings.clockId != LMO_CLOCK_ID) {
+            throw IllegalArgumentException("${settings.clockId} is unsupported by $TAG")
+        }
+        return LMOClockController(
+            pluginContext,
+            LayoutInflater.from(pluginContext),
+            pluginContext.resources,
+            settings,
+            false,
+            false,
+            messageBuffers,
+        )
+    }
+    override fun getClockThumbnail(id: ClockId): Drawable? {
+        if (id != LMO_CLOCK_ID) {
+            throw IllegalArgumentException("$id is unsupported by $TAG")
+        }
+        // TODO: Update placeholder to actual resource
+        return null
     }
 }

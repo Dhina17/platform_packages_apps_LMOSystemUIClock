@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AnimatableClockView">
+        <attr name="dozeWeight" format="integer" />
+        <attr name="lockScreenWeight" format="integer" />
+        <attr name="chargeAnimationDelay" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="TextView">
+        <attr name="singleLine" format="boolean" />
+    </declare-styleable>
+</resources>

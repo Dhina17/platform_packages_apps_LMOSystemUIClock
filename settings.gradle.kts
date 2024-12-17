@@ -21,3 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "LMOClock"
 include(":app")
+include(":animationlib")
+include(":SystemUIAnimationLib")
