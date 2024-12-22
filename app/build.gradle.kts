@@ -31,11 +31,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     signingConfigs {
         getByName("debug") {
@@ -59,6 +59,7 @@ dependencies {
     compileOnly(files("../system_libs/SystemUISharedLib.jar"))
     compileOnly(files("../system_libs/SystemUI-statsd.jar"))
     compileOnly(files("../system_libs/SystemUIPluginLib.jar"))
+    implementation(files("../system_libs/PlatformAnimationLib.jar"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
