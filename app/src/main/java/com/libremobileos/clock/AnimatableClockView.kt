@@ -22,13 +22,18 @@ import android.annotation.IntRange
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Typeface
 import android.text.Layout
 import android.text.TextUtils
 import android.text.format.DateFormat
 import android.util.AttributeSet
 import android.util.MathUtils.constrainedMap
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.core.content.res.ResourcesCompat
 import com.android.app.animation.Interpolators
 import com.android.internal.annotations.VisibleForTesting
 import com.android.systemui.animation.GlyphCallback
@@ -66,9 +71,9 @@ class AnimatableClockView @JvmOverloads constructor(
 
     private val time = Calendar.getInstance()
 
-    private val dozingWeightInternal: Int
-    private val lockScreenWeightInternal: Int
-    private val isSingleLineInternal: Boolean
+    private var dozingWeightInternal: Int
+    private var lockScreenWeightInternal: Int
+    private var isSingleLineInternal: Boolean
 
     private var format: CharSequence? = null
     private var descFormat: CharSequence? = null
@@ -80,7 +85,7 @@ class AnimatableClockView @JvmOverloads constructor(
     private var lockScreenColor = 0
 
     private var lineSpacingScale = 1f
-    private val chargeAnimationDelay: Int
+    private var chargeAnimationDelay: Int
     private var textAnimator: TextAnimator? = null
     private var onTextAnimatorInitialized: Runnable? = null
 
@@ -614,5 +619,46 @@ class AnimatableClockView @JvmOverloads constructor(
         // Total available transition time for each digit, taking into account the step. If step is
         // 0.1, then digit 0 would animate over 0.0 - 0.7, making availableTime 0.7.
         private const val AVAILABLE_ANIMATION_TIME = 1.0f - MOVE_DIGIT_STEP * (NUM_DIGITS - 1)
+
+        fun getLargeClockView(context: Context): AnimatableClockView {
+            return AnimatableClockView(context).apply {
+                layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    Gravity.CENTER
+                )
+                gravity = Gravity.CENTER_HORIZONTAL
+                textSize = resources.getDimension(R.dimen.large_clock_text_size)
+                typeface = Typeface.MONOSPACE
+                // fontFamily = resources.getString(android.R.string)
+                isElegantTextHeight = false
+                // Assuming app specific attributes are defined in a custom class
+                isSingleLineInternal = false
+                chargeAnimationDelay = 200
+                dozingWeightInternal = 200
+                lockScreenWeightInternal = 400
+            }
+        }
+
+        fun getSmallClockView(context: Context): AnimatableClockView {
+            return AnimatableClockView(context).apply {
+                layoutParams = FrameLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    Gravity.START
+                )
+                gravity = Gravity.START
+                textSize = resources.getDimension(R.dimen.small_clock_text_size)
+                typeface = Typeface.MONOSPACE
+                //fontFamily = resources.getString(android.R.string)
+                isElegantTextHeight = false
+                fontFeatureSettings = "pnum"
+                // Assuming app specific attributes are defined in a custom class
+                isSingleLineInternal = true
+                chargeAnimationDelay = 350
+                dozingWeightInternal = 200
+                lockScreenWeightInternal = 400
+            }
+        }
     }
 }
