@@ -22,7 +22,6 @@ import android.annotation.IntRange
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Typeface
 import android.text.Layout
 import android.text.TextUtils
 import android.text.format.DateFormat
@@ -629,10 +628,8 @@ class AnimatableClockView @JvmOverloads constructor(
                 )
                 gravity = Gravity.CENTER_HORIZONTAL
                 textSize = resources.getDimension(R.dimen.large_clock_text_size)
-                typeface = Typeface.MONOSPACE
-                // fontFamily = resources.getString(android.R.string)
+                typeface = ResourcesCompat.getFont(context, R.font.modak)
                 isElegantTextHeight = false
-                // Assuming app specific attributes are defined in a custom class
                 isSingleLineInternal = false
                 chargeAnimationDelay = 200
                 dozingWeightInternal = 200
@@ -649,11 +646,9 @@ class AnimatableClockView @JvmOverloads constructor(
                 )
                 gravity = Gravity.START
                 textSize = resources.getDimension(R.dimen.small_clock_text_size)
-                typeface = Typeface.MONOSPACE
-                //fontFamily = resources.getString(android.R.string)
+                typeface = ResourcesCompat.getFont(context, R.font.modak)
                 isElegantTextHeight = false
                 fontFeatureSettings = "pnum"
-                // Assuming app specific attributes are defined in a custom class
                 isSingleLineInternal = true
                 chargeAnimationDelay = 350
                 dozingWeightInternal = 200
