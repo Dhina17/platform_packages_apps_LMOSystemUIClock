@@ -12,9 +12,15 @@ import com.android.systemui.plugins.clocks.ClockMessageBuffers
 import com.android.systemui.plugins.clocks.ClockMetadata
 import com.android.systemui.plugins.clocks.ClockProviderPlugin
 import com.android.systemui.plugins.clocks.ClockSettings
+import kotlin.collections.contains
 
 private val TAG = LMOClockProvider::class.simpleName
-const val LMO_CLOCK_ID = "LMOClock"
+
+const val MODAK_CLOCK_ID = "ModakClock"
+
+val LMO_CLOCKS = listOf(
+    MODAK_CLOCK_ID,
+)
 
 @Requires(target = ClockProviderPlugin::class, version = ClockProviderPlugin.VERSION)
 class LMOClockProvider : ClockProviderPlugin {
@@ -34,14 +40,15 @@ class LMOClockProvider : ClockProviderPlugin {
         messageBuffers = buffers
     }
 
-    override fun getClocks(): List<ClockMetadata> = listOf(ClockMetadata(LMO_CLOCK_ID))
+    override fun getClocks(): List<ClockMetadata> = LMO_CLOCKS.map { ClockMetadata(it) }
 
     override fun createClock(settings: ClockSettings): ClockController {
-        if (settings.clockId != LMO_CLOCK_ID) {
+        if (!LMO_CLOCKS.contains(settings.clockId)) {
             throw IllegalArgumentException("${settings.clockId} is unsupported by $TAG")
         }
 
         return LMOClockController(
+            settings.clockId!!,
             pluginContext,
             sysuiContext,
             LayoutInflater.from(pluginContext),
@@ -55,7 +62,7 @@ class LMOClockProvider : ClockProviderPlugin {
     }
 
     override fun getClockThumbnail(id: ClockId): Drawable? {
-        if (id != LMO_CLOCK_ID) {
+        if (!LMO_CLOCKS.contains(id)) {
             throw IllegalArgumentException("$id is unsupported by $TAG")
         }
 

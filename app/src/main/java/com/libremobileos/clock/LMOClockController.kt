@@ -48,10 +48,11 @@ import java.util.TimeZone
  * existing lockscreen clock.
  */
 class LMOClockController(
+    private val clockId: String,
     private val ctx: Context,
     private val sysuiCtx: Context,
     layoutInflater: LayoutInflater,
-    private val resources: Resources,
+    resources: Resources,
     private val sysuiResources: Resources,
     settings: ClockSettings?,
     private val hasStepClockAnimation: Boolean = false,
@@ -72,9 +73,9 @@ class LMOClockController(
     override val events: DefaultClockEvents
     override val config: ClockConfig by lazy {
         ClockConfig(
-            LMO_CLOCK_ID,
-            resources.getString(R.string.clock_default_name),
-            resources.getString(R.string.clock_default_description)
+            clockId,
+            getClockName(),
+            getClockDescription()
         )
     }
 
@@ -84,7 +85,7 @@ class LMOClockController(
             DefaultClockFaceController(
                 // layoutInflater.inflate(R.layout.lmo_clock_small, parent, false)
                 //        as AnimatableClockView,
-                AnimatableClockView.getSmallClockView(ctx),
+                AnimatableClockView.getSmallClockView(ctx, clockId),
                 settings?.seedColor,
                 messageBuffers?.smallClockMessageBuffer
             )
@@ -92,7 +93,7 @@ class LMOClockController(
             LargeClockFaceController(
                 // layoutInflater.inflate(R.layout.lmo_clock_large, parent, false)
                 //        as AnimatableClockView,
-                AnimatableClockView.getLargeClockView(ctx),
+                AnimatableClockView.getLargeClockView(ctx, clockId),
                 settings?.seedColor,
                 messageBuffers?.largeClockMessageBuffer
             )
@@ -359,6 +360,20 @@ class LMOClockController(
 
         pw.print("largeClock=")
         largeClock.view.dump(pw)
+    }
+
+    private fun getClockName(): String {
+        return when(clockId) {
+            MODAK_CLOCK_ID -> ctx.getString(R.string.clock_modak_name)
+            else -> "" // Won't happen
+        }
+    }
+
+    private fun getClockDescription(): String {
+        return when(clockId) {
+            MODAK_CLOCK_ID -> ctx.getString(R.string.clock_modak_description)
+            else -> "" // Won't happen
+        }
     }
 
     companion object {

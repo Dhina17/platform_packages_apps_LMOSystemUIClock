@@ -619,7 +619,7 @@ class AnimatableClockView @JvmOverloads constructor(
         // 0.1, then digit 0 would animate over 0.0 - 0.7, making availableTime 0.7.
         private const val AVAILABLE_ANIMATION_TIME = 1.0f - MOVE_DIGIT_STEP * (NUM_DIGITS - 1)
 
-        fun getLargeClockView(context: Context): AnimatableClockView {
+        fun getLargeClockView(context: Context, clockId: String): AnimatableClockView {
             return AnimatableClockView(context).apply {
                 layoutParams = FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -628,7 +628,7 @@ class AnimatableClockView @JvmOverloads constructor(
                 )
                 gravity = Gravity.CENTER_HORIZONTAL
                 textSize = resources.getDimension(R.dimen.large_clock_text_size)
-                typeface = ResourcesCompat.getFont(context, R.font.modak)
+                typeface = ResourcesCompat.getFont(context, selectFont(clockId))
                 isElegantTextHeight = false
                 isSingleLineInternal = false
                 chargeAnimationDelay = 200
@@ -637,7 +637,7 @@ class AnimatableClockView @JvmOverloads constructor(
             }
         }
 
-        fun getSmallClockView(context: Context): AnimatableClockView {
+        fun getSmallClockView(context: Context, clockId: String): AnimatableClockView {
             return AnimatableClockView(context).apply {
                 layoutParams = FrameLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
@@ -646,13 +646,20 @@ class AnimatableClockView @JvmOverloads constructor(
                 )
                 gravity = Gravity.START
                 textSize = resources.getDimension(R.dimen.small_clock_text_size)
-                typeface = ResourcesCompat.getFont(context, R.font.modak)
+                typeface = ResourcesCompat.getFont(context, selectFont(clockId))
                 isElegantTextHeight = false
                 fontFeatureSettings = "pnum"
                 isSingleLineInternal = true
                 chargeAnimationDelay = 350
                 dozingWeightInternal = 200
                 lockScreenWeightInternal = 400
+            }
+        }
+
+        private fun selectFont(clockId: String): Int {
+            return when(clockId) {
+                MODAK_CLOCK_ID -> R.font.modak
+                else -> R.font.modak // This won't happen
             }
         }
     }

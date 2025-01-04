@@ -19,11 +19,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">LMOClock</string>
 
-    <!-- default clock face name [CHAR LIMIT=NONE]-->
-    <string name="clock_default_name">Default</string>
-
-    <!-- default clock face description [CHAR LIMIT=NONE]-->
-    <string name="clock_default_description">Digital default</string>
+    <!-- LMO Clocks list -->
+    <!-- Modak -->
+    <string name="clock_modak_name">Modak</string>
+    <string name="clock_modak_description">Digital modak</string>
 
     <!-- Skeleton string format for displaying the time in 12-hour format. -->
     <string name="clock_12hr_format">hm</string>
