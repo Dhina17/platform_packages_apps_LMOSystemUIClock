@@ -22,10 +22,12 @@ class LMOClockProvider : ClockProviderPlugin {
     private var messageBuffers: ClockMessageBuffers? = null
 
     private lateinit var pluginContext: Context
+    private lateinit var sysuiContext: Context
 
     override fun onCreate(sysuiCtx: Context, pluginCtx: Context) {
         Log.i(TAG, "onCreate")
         pluginContext = pluginCtx
+        sysuiContext = sysuiCtx
     }
 
     override fun initialize(buffers: ClockMessageBuffers?) {
@@ -41,8 +43,10 @@ class LMOClockProvider : ClockProviderPlugin {
 
         return LMOClockController(
             pluginContext,
+            sysuiContext,
             LayoutInflater.from(pluginContext),
             pluginContext.resources,
+            sysuiContext.resources,
             settings,
             false,
             false,

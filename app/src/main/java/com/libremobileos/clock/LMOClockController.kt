@@ -49,8 +49,10 @@ import java.util.TimeZone
  */
 class LMOClockController(
     private val ctx: Context,
+    private val sysuiCtx: Context,
     layoutInflater: LayoutInflater,
     private val resources: Resources,
+    private val sysuiResources: Resources,
     settings: ClockSettings?,
     private val hasStepClockAnimation: Boolean = false,
     private val migratedClocks: Boolean = false,
@@ -125,7 +127,7 @@ class LMOClockController(
         override val layout =
             DefaultClockFaceLayout(view).apply {
                 views[0].id =
-                    resources.getIdentifier("lockscreen_clock_view", "id", ctx.packageName)
+                    sysuiResources.getIdentifier("lockscreen_clock_view", "id", sysuiCtx.packageName)
             }
 
         override var animations: DefaultClockAnimations = DefaultClockAnimations(view, 0f, 0f)
@@ -171,9 +173,9 @@ class LMOClockController(
                 if (seedColor != null) {
                     seedColor!!
                 } else if (isRegionDark) {
-                    resources.getColor(android.R.color.system_accent1_100)
+                    sysuiResources.getColor(android.R.color.system_accent1_100)
                 } else {
-                    resources.getColor(android.R.color.system_accent2_600)
+                    sysuiResources.getColor(android.R.color.system_accent2_600)
                 }
 
             if (currentColor == color) {
@@ -196,7 +198,7 @@ class LMOClockController(
         override val layout =
             DefaultClockFaceLayout(view).apply {
                 views[0].id =
-                    resources.getIdentifier("lockscreen_clock_view_large", "id", ctx.packageName)
+                    sysuiResources.getIdentifier("lockscreen_clock_view_large", "id", sysuiCtx.packageName)
             }
         override val config =
             ClockFaceConfig(hasCustomPositionUpdatedAnimation = hasStepClockAnimation)
