@@ -225,10 +225,10 @@ class LMOClockController(
                     0
                 } else {
                     val parent = view.parent
-                    val yDiff =
-                        if (targetRegion != null && parent is View && parent.isLaidOut())
-                            targetRegion.centerY() - parent.height / 2f
-                        else 0f
+                    val yDiff = 0f // for now
+//                        if (targetRegion != null && parent is View && parent.isLaidOut())
+//                            targetRegion.centerY() - parent.height / 2f
+//                        else 0f
                     (-0.5f * view.bottom + yDiff).toInt()
                 }
             view.setLayoutParams(lp)
