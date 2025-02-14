@@ -23,6 +23,9 @@
     <!-- Modak -->
     <string name="clock_modak_name">Modak</string>
     <string name="clock_modak_description">Digital modak</string>
+    <!-- Monoton -->
+    <string name="clock_monoton_name">Modak</string>
+    <string name="clock_monoton_description">Digital modak</string>
 
     <!-- Skeleton string format for displaying the time in 12-hour format. -->
     <string name="clock_12hr_format">hm</string>

@@ -365,6 +365,7 @@ class LMOClockController(
     private fun getClockName(): String {
         return when(clockId) {
             MODAK_CLOCK_ID -> ctx.getString(R.string.clock_modak_name)
+            MONOTON_CLOCK_ID -> ctx.getString(R.string.clock_monoton_description)
             else -> "" // Won't happen
         }
     }
@@ -372,6 +373,7 @@ class LMOClockController(
     private fun getClockDescription(): String {
         return when(clockId) {
             MODAK_CLOCK_ID -> ctx.getString(R.string.clock_modak_description)
+            MONOTON_CLOCK_ID -> ctx.getString(R.string.clock_monoton_description)
             else -> "" // Won't happen
         }
     }

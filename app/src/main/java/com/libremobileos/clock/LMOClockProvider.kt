@@ -17,9 +17,11 @@ import kotlin.collections.contains
 private val TAG = LMOClockProvider::class.simpleName
 
 const val MODAK_CLOCK_ID = "ModakClock"
+const val MONOTON_CLOCK_ID = "MonotonClock"
 
 val LMO_CLOCKS = listOf(
     MODAK_CLOCK_ID,
+    MONOTON_CLOCK_ID
 )
 
 @Requires(target = ClockProviderPlugin::class, version = ClockProviderPlugin.VERSION)
