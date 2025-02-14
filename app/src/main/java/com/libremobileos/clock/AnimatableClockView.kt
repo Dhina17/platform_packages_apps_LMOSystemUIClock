@@ -663,5 +663,13 @@ class AnimatableClockView @JvmOverloads constructor(
                 else -> R.font.modak // This won't happen
             }
         }
+
+        fun getLineSpaceByClockId(clockId: String): Int {
+            return when(clockId) {
+                MODAK_CLOCK_ID -> R.dimen.keyguard_clock_line_spacing_scale_modak
+                MONOTON_CLOCK_ID -> R.dimen.keyguard_clock_line_spacing_scale_monoton
+                else -> R.dimen.keyguard_clock_line_spacing_scale
+            }
+        }
     }
 }

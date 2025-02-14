@@ -67,7 +67,9 @@ class LMOClockController(
     private val burmeseNumerals = burmeseNf.format(FORMAT_NUMBER.toLong())
     private val burmeseLineSpacing =
         resources.getFloat(R.dimen.keyguard_clock_line_spacing_scale_burmese)
-    private val defaultLineSpacing = resources.getFloat(R.dimen.keyguard_clock_line_spacing_scale)
+    private val defaultLineSpacing by lazy {
+        resources.getFloat(AnimatableClockView.getLineSpaceByClockId(clockId))
+    }
     protected var onSecondaryDisplay: Boolean = false
 
     override val events: DefaultClockEvents
