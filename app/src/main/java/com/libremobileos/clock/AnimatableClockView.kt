@@ -660,6 +660,7 @@ class AnimatableClockView @JvmOverloads constructor(
             return when(clockId) {
                 MODAK_CLOCK_ID -> R.font.modak
                 MONOTON_CLOCK_ID -> R.font.monoton
+                RUBIK_DISTRESSED_CLOCK_ID -> R.font.rubikdistressed
                 STICKNOBILLS_CLOCK_ID -> R.font.stick_no_bills
                 else -> R.font.modak // This won't happen
             }
