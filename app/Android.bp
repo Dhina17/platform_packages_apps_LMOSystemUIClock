@@ -1,0 +1,28 @@
+//
+// SPDX-FileCopyrightText: 2025 The LibreMobileOS Foundation
+// SPDX-License-Identifier: Apache-2.0
+//
+
+package {
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+android_app {
+    name: "LMOSystemUIClock",
+    srcs: ["src/main/java/**/*.kt"],
+    resource_dirs: ["src/main/res"],
+    manifest: "src/main/AndroidManifest.xml",
+    use_resource_processor: true,
+    libs: [
+        "SystemUIPluginLib",
+    ],
+    static_libs: [
+        "SystemUISharedLib",
+    ],
+    certificate: "platform",
+    optimize: {
+        enabled: false,
+    },
+    platform_apis: true,
+    system_ext_specific: true,
+}
