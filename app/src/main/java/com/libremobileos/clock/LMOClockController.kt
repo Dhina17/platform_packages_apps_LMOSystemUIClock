@@ -368,6 +368,7 @@ class LMOClockController(
         return when(clockId) {
             MODAK_CLOCK_ID -> ctx.getString(R.string.clock_modak_name)
             MONOTON_CLOCK_ID -> ctx.getString(R.string.clock_monoton_description)
+            RUBIK_DIRT_CLOCK_ID -> ctx.getString(R.string.clock_rubik_dirt_name)
             RUBIK_DISTRESSED_CLOCK_ID -> ctx.getString(R.string.clock_rubik_distressed_name)
             STICKNOBILLS_CLOCK_ID -> ctx.getString(R.string.clock_stick_no_bills_name)
             else -> "" // Won't happen
@@ -378,6 +379,7 @@ class LMOClockController(
         return when(clockId) {
             MODAK_CLOCK_ID -> ctx.getString(R.string.clock_modak_description)
             MONOTON_CLOCK_ID -> ctx.getString(R.string.clock_monoton_description)
+            RUBIK_DIRT_CLOCK_ID -> ctx.getString(R.string.clock_rubik_dirt_description)
             RUBIK_DISTRESSED_CLOCK_ID -> ctx.getString(R.string.clock_rubik_distressed_description)
             STICKNOBILLS_CLOCK_ID -> ctx.getString(R.string.clock_stick_no_bills_description)
             else -> "" // Won't happen

@@ -26,6 +26,9 @@
     <!-- Monoton -->
     <string name="clock_monoton_name">Modak</string>
     <string name="clock_monoton_description">Digital modak</string>
+    <!-- Rubik Dirt -->
+    <string name="clock_rubik_dirt_name">Rubik Dirt</string>
+    <string name="clock_rubik_dirt_description">Digital Rubik Dirt</string>
     <!-- Rubik Distressed -->
     <string name="clock_rubik_distressed_name">Rubik Distressed</string>
     <string name="clock_rubik_distressed_description">Digital Rubik Distressed</string>
