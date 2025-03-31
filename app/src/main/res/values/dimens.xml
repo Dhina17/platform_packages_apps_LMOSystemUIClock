@@ -39,4 +39,6 @@
     <item name="keyguard_clock_line_spacing_scale_modak" type="dimen" format="float">0.55</item>
     <!-- Monoton -->
     <item name="keyguard_clock_line_spacing_scale_monoton" type="dimen" format="float">0.6</item>
+    <!-- Blaka -->
+    <item name="keyguard_clock_line_spacing_scale_blaka" type="dimen" format="float">0.6</item>
 </resources>

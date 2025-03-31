@@ -20,6 +20,9 @@
     <string name="app_name">LMOClock</string>
 
     <!-- LMO Clocks list -->
+    <!-- Blaka -->
+    <string name="clock_blaka_name">Blaka</string>
+    <string name="clock_blaka_description">Digital blaka</string>
     <!-- Modak -->
     <string name="clock_modak_name">Modak</string>
     <string name="clock_modak_description">Digital modak</string>

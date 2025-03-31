@@ -366,6 +366,7 @@ class LMOClockController(
 
     private fun getClockName(): String {
         return when(clockId) {
+            BLAKA_CLOCK_ID -> ctx.getString(R.string.clock_blaka_name)
             MODAK_CLOCK_ID -> ctx.getString(R.string.clock_modak_name)
             MONOTON_CLOCK_ID -> ctx.getString(R.string.clock_monoton_description)
             RUBIK_DIRT_CLOCK_ID -> ctx.getString(R.string.clock_rubik_dirt_name)
@@ -377,6 +378,7 @@ class LMOClockController(
 
     private fun getClockDescription(): String {
         return when(clockId) {
+            BLAKA_CLOCK_ID -> ctx.getString(R.string.clock_blaka_description)
             MODAK_CLOCK_ID -> ctx.getString(R.string.clock_modak_description)
             MONOTON_CLOCK_ID -> ctx.getString(R.string.clock_monoton_description)
             RUBIK_DIRT_CLOCK_ID -> ctx.getString(R.string.clock_rubik_dirt_description)
