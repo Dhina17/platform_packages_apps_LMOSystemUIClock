@@ -371,6 +371,7 @@ class LMOClockController(
             MONOTON_CLOCK_ID -> ctx.getString(R.string.clock_monoton_name)
             RUBIK_DIRT_CLOCK_ID -> ctx.getString(R.string.clock_rubik_dirt_name)
             RUBIK_DISTRESSED_CLOCK_ID -> ctx.getString(R.string.clock_rubik_distressed_name)
+            RUBIK_MARKER_HATCH_CLOCK_ID -> ctx.getString(R.string.clock_rubik_market_hatch_name)
             STICKNOBILLS_CLOCK_ID -> ctx.getString(R.string.clock_stick_no_bills_name)
             else -> "" // Won't happen
         }
@@ -383,6 +384,7 @@ class LMOClockController(
             MONOTON_CLOCK_ID -> ctx.getString(R.string.clock_monoton_description)
             RUBIK_DIRT_CLOCK_ID -> ctx.getString(R.string.clock_rubik_dirt_description)
             RUBIK_DISTRESSED_CLOCK_ID -> ctx.getString(R.string.clock_rubik_distressed_description)
+            RUBIK_MARKER_HATCH_CLOCK_ID -> ctx.getString(R.string.clock_rubik_market_hatch_description)
             STICKNOBILLS_CLOCK_ID -> ctx.getString(R.string.clock_stick_no_bills_description)
             else -> "" // Won't happen
         }
