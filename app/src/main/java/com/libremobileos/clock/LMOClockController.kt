@@ -33,6 +33,7 @@ import com.android.systemui.plugins.clocks.ClockFaceConfig
 import com.android.systemui.plugins.clocks.ClockFaceController
 import com.android.systemui.plugins.clocks.ClockFaceEvents
 import com.android.systemui.plugins.clocks.ClockMessageBuffers
+import com.android.systemui.plugins.clocks.ClockReactiveSetting
 import com.android.systemui.plugins.clocks.ClockSettings
 import com.android.systemui.plugins.clocks.DefaultClockFaceLayout
 import com.android.systemui.plugins.clocks.WeatherData
@@ -77,19 +78,19 @@ class LMOClockController(
         ClockConfig(
             clockId,
             getClockName(),
-            getClockDescription()
+            getClockDescription(),
         )
     }
 
     init {
-        val parent = FrameLayout(ctx)
+        // val parent = FrameLayout(ctx)
         smallClock =
             DefaultClockFaceController(
                 // layoutInflater.inflate(R.layout.lmo_clock_small, parent, false)
                 //        as AnimatableClockView,
                 AnimatableClockView.getSmallClockView(ctx, clockId),
                 settings?.seedColor,
-                messageBuffers?.smallClockMessageBuffer
+                messageBuffers?.smallClockMessageBuffer,
             )
         largeClock =
             LargeClockFaceController(
@@ -97,7 +98,7 @@ class LMOClockController(
                 //        as AnimatableClockView,
                 AnimatableClockView.getLargeClockView(ctx, clockId),
                 settings?.seedColor,
-                messageBuffers?.largeClockMessageBuffer
+                messageBuffers?.largeClockMessageBuffer,
             )
         clocks = listOf(smallClock.view, largeClock.view)
 
@@ -276,7 +277,10 @@ class LMOClockController(
         override var isReactiveTouchInteractionEnabled: Boolean = false
 
         override fun onAlarmDataChanged(data: AlarmData) {}
+
         override fun onZenDataChanged(data: ZenData) {}
+
+        override fun onReactiveAxesChanged(axes: List<ClockReactiveSetting>) {}
     }
 
     open inner class DefaultClockAnimations(
