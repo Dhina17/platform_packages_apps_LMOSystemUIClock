@@ -17,6 +17,7 @@ import kotlin.collections.contains
 private val TAG = LMOClockProvider::class.simpleName
 
 const val BLAKA_CLOCK_ID = "BlakaClock"
+const val KABLAMMO_CLOCK_ID = "KablammoClock"
 const val MODAK_CLOCK_ID = "ModakClock"
 const val MONOTON_CLOCK_ID = "MonotonClock"
 const val RUBIK_DIRT_CLOCK_ID = "RubikDirtClock"
@@ -27,6 +28,7 @@ const val STICKNOBILLS_CLOCK_ID = "StickNoBillsClock"
 
 val LMO_CLOCKS = listOf(
     BLAKA_CLOCK_ID,
+    KABLAMMO_CLOCK_ID,
     MODAK_CLOCK_ID,
     MONOTON_CLOCK_ID,
     RUBIK_DIRT_CLOCK_ID,

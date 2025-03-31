@@ -23,6 +23,9 @@
     <!-- Blaka -->
     <string name="clock_blaka_name">Blaka</string>
     <string name="clock_blaka_description">Digital blaka</string>
+    <!-- Kablammo -->
+    <string name="clock_kablammo_name">Kablammo</string>
+    <string name="clock_kablammo_description">Digital kablammo</string>
     <!-- Modak -->
     <string name="clock_modak_name">Modak</string>
     <string name="clock_modak_description">Digital modak</string>
