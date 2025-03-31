@@ -35,6 +35,9 @@
     <!-- Rubik Distressed -->
     <string name="clock_rubik_distressed_name">Rubik Distressed</string>
     <string name="clock_rubik_distressed_description">Digital Rubik Distressed</string>
+    <!-- Rubik Gemstones -->
+    <string name="clock_rubik_gemstones_name">Rubik Gemstones</string>
+    <string name="clock_rubik_gemstones_description">Digital Rubik Gemstones</string>
     <!-- Rubik Marker Hatch -->
     <string name="clock_rubik_market_hatch_name">Rubik Marker Hatch</string>
     <string name="clock_rubik_market_hatch_description">Digital Rubik Marker Hatch</string>
