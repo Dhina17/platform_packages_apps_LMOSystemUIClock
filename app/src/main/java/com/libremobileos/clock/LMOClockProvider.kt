@@ -20,6 +20,7 @@ const val BLAKA_CLOCK_ID = "BlakaClock"
 const val KABLAMMO_CLOCK_ID = "KablammoClock"
 const val MODAK_CLOCK_ID = "ModakClock"
 const val MONOTON_CLOCK_ID = "MonotonClock"
+const val MYSTERY_QUEST_CLOCK_ID = "MysteryQuestClock"
 const val RUBIK_DIRT_CLOCK_ID = "RubikDirtClock"
 const val RUBIK_DISTRESSED_CLOCK_ID = "RubikDistressedClock"
 const val RUBIK_GEMSTONES_CLOCK_ID = "RubikGemstonesClock"
@@ -31,6 +32,7 @@ val LMO_CLOCKS = listOf(
     KABLAMMO_CLOCK_ID,
     MODAK_CLOCK_ID,
     MONOTON_CLOCK_ID,
+    MYSTERY_QUEST_CLOCK_ID,
     RUBIK_DIRT_CLOCK_ID,
     RUBIK_DISTRESSED_CLOCK_ID,
     RUBIK_GEMSTONES_CLOCK_ID,

@@ -662,6 +662,7 @@ class AnimatableClockView @JvmOverloads constructor(
                 KABLAMMO_CLOCK_ID -> R.font.kablammo
                 MODAK_CLOCK_ID -> R.font.modak
                 MONOTON_CLOCK_ID -> R.font.monoton
+                MYSTERY_QUEST_CLOCK_ID -> R.font.mysteryquest
                 RUBIK_DIRT_CLOCK_ID -> R.font.rubikdirt
                 RUBIK_DISTRESSED_CLOCK_ID -> R.font.rubikdistressed
                 RUBIK_GEMSTONES_CLOCK_ID -> R.font.rubikgemstones
