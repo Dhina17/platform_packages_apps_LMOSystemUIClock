@@ -659,6 +659,7 @@ class AnimatableClockView @JvmOverloads constructor(
         private fun selectFont(clockId: String): Int {
             return when(clockId) {
                 BLAKA_CLOCK_ID -> R.font.blaka
+                CREEPSTER_CLOCK_ID -> R.font.creepster
                 KABLAMMO_CLOCK_ID -> R.font.kablammo
                 MODAK_CLOCK_ID -> R.font.modak
                 MONOTON_CLOCK_ID -> R.font.monoton

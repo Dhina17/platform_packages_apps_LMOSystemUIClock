@@ -23,6 +23,9 @@
     <!-- Blaka -->
     <string name="clock_blaka_name">Blaka</string>
     <string name="clock_blaka_description">Digital blaka</string>
+    <!-- Creepster -->
+    <string name="clock_creepster_name">Creepster</string>
+    <string name="clock_creepster_description">Digital creepster</string>
     <!-- Kablammo -->
     <string name="clock_kablammo_name">Kablammo</string>
     <string name="clock_kablammo_description">Digital kablammo</string>
