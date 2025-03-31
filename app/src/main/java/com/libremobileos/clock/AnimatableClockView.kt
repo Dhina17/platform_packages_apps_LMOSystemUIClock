@@ -668,7 +668,6 @@ class AnimatableClockView @JvmOverloads constructor(
                 RUBIK_DISTRESSED_CLOCK_ID -> R.font.rubikdistressed
                 RUBIK_GEMSTONES_CLOCK_ID -> R.font.rubikgemstones
                 RUBIK_MARKER_HATCH_CLOCK_ID -> R.font.rubikmarkerhatch
-                STICKNOBILLS_CLOCK_ID -> R.font.stick_no_bills
                 else -> R.font.modak // This won't happen
             }
         }
