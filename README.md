@@ -10,7 +10,11 @@ LMOSystemUIClock is the default AOSP clock plugin but with different font styles
 - In Android Studio, it will be signed with the AOSP test platform key by default.
 
 ## License
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0.
+```
+  SPDX-FileCopyrightText: 2024-2025 The LibreMobileOS Foundation
+  SPDX-License-Identifier: Apache-2.0
+```
 
 The fonts used in this project are licensed under the [Open Font License](https://openfontlicense.org/open-font-license-official-text).
 

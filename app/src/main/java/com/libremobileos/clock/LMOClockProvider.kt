@@ -1,3 +1,9 @@
+/*
+ * SPDX-FileCopyrightText: 2022 The Android Open Source Project
+ * SPDX-FileCopyrightText: 2024-2025 The LibreMobileOS Foundation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 package com.libremobileos.clock
 
 import android.content.Context

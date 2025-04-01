@@ -1,0 +1,85 @@
+# SPDX-FileCopyrightText: 2024-2025 The LibreMobileOS Foundation
+# SPDX-License-Identifier: Apache-2.0
+
+version = 1
+SPDX-PackageName = "LMOSystemUIClock"
+SPDX-PackageSupplier = "The LibreMobileOS Foundation"
+SPDX-PackageDownloadLocation = "https://git.libremobileos.com/LMODroid/platform_packages_apps_LMOSystemUIClock"
+
+[[annotations]]
+path = [".gitignore", "app/.gitignore", "app/src/main/res/mipmap*/**", "keystore.properties"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2025 The LibreMobileOS Foundation"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["gradle/wrapper/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2007-2025 Gradle, Inc."
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["app/platform.jks", "platform.jks", "system_libs/**"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2009-2025 The Android Open Source Project"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = "app/src/main/res/font/blaka.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2019 The Blaka Project Authors (https://github.com/Gue3bara/Blaka)"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "app/src/main/res/font/creepster.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2011, Font Diner, Inc (diner@fontdiner.com), with Reserved Font Names \"Creepster\""
+SPDX-License-Identifier = "OFL-1.1-RFN"
+
+[[annotations]]
+path = "app/src/main/res/font/kablammo.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2023 The Kablammo Project Authors (https://github.com/Vectro-Type-Foundry/kablammo)"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "app/src/main/res/font/modak.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2015 Ek Type (www.ektype.in)"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "app/src/main/res/font/monoton.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2011 vernon adams (vern@newtypography.co.uk), with Reserved Font Names \"Monoton\""
+SPDX-License-Identifier = "OFL-1.1-RFN"
+
+[[annotations]]
+path = "app/src/main/res/font/mysteryquest.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2012, Font Diner (www.fontdiner.com), with Reserved Font Name \"Mystery Quest\""
+SPDX-License-Identifier = "OFL-1.1-RFN"
+
+[[annotations]]
+path = "app/src/main/res/font/rubikdirt.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 The Rubik Filtered Project Authors (https://https://github.com/NaN-xyz/Rubik-Filtered)"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "app/src/main/res/font/rubikdistressed.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 The Rubik Filtered Project Authors (https://https://github.com/NaN-xyz/Rubik-Filtered)"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "app/src/main/res/font/rubikgemstones.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 The Rubik Filtered Project Authors (https://https://github.com/NaN-xyz/Rubik-Filtered)"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
+path = "app/src/main/res/font/rubikmarkerhatch.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2020 The Rubik Filtered Project Authors (https://https://github.com/NaN-xyz/Rubik-Filtered)"
+SPDX-License-Identifier = "OFL-1.1"

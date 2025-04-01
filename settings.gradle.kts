@@ -1,3 +1,8 @@
+/*
+ * SPDX-FileCopyrightText: 2024-2025 The LibreMobileOS Foundation
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 pluginManagement {
     repositories {
         google {

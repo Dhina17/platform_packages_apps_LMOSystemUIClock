@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2024-2025 The LibreMobileOS Foundation
+# SPDX-License-Identifier: Apache-2.0
+
 [versions]
 agp = "8.9.1"
 kotlin = "2.0.20"
