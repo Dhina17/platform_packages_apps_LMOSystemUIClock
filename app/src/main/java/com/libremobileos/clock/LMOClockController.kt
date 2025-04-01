@@ -217,6 +217,9 @@ class LMOClockController(
             if (migratedClocks) {
                 return
             }
+            if (view.layoutParams !is FrameLayout.LayoutParams) {
+                return
+            }
             // We center the view within the targetRegion instead of within the parent
             // view by computing the difference and adding that to the padding.
             val lp = view.getLayoutParams() as FrameLayout.LayoutParams
