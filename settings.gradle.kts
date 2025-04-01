@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "LMOClock"
+rootProject.name = "LMOSystemUIClock"
 include(":app")

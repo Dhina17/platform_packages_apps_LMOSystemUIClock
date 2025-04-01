@@ -17,7 +17,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="app_name">LMOClock</string>
+    <string name="app_name">LMOSystemUIClock</string>
 
     <!-- LMO Clocks list -->
     <!-- Blaka -->
