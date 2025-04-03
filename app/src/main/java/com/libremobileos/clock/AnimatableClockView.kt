@@ -653,7 +653,6 @@ class AnimatableClockView @JvmOverloads constructor(
                 CREEPSTER_CLOCK_ID -> R.font.creepster
                 KABLAMMO_CLOCK_ID -> R.font.kablammo
                 MODAK_CLOCK_ID -> R.font.modak
-                MONOTON_CLOCK_ID -> R.font.monoton
                 MYSTERY_QUEST_CLOCK_ID -> R.font.mysteryquest
                 RUBIK_DIRT_CLOCK_ID -> R.font.rubikdirt
                 RUBIK_DISTRESSED_CLOCK_ID -> R.font.rubikdistressed
@@ -667,7 +666,6 @@ class AnimatableClockView @JvmOverloads constructor(
             return when(clockId) {
                 BLAKA_CLOCK_ID -> R.dimen.keyguard_clock_line_spacing_scale_blaka
                 MODAK_CLOCK_ID -> R.dimen.keyguard_clock_line_spacing_scale_modak
-                MONOTON_CLOCK_ID -> R.dimen.keyguard_clock_line_spacing_scale_monoton
                 else -> R.dimen.keyguard_clock_line_spacing_scale
             }
         }

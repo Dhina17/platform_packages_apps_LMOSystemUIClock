@@ -20,9 +20,6 @@
     <!-- Modak -->
     <string name="clock_modak_name">Modak</string>
     <string name="clock_modak_description">Digital modak</string>
-    <!-- Monoton -->
-    <string name="clock_monoton_name">Modak</string>
-    <string name="clock_monoton_description">Digital modak</string>
     <!-- Mystery Quest -->
     <string name="clock_mystery_quest_name">Mystery Quest</string>
     <string name="clock_mystery_quest_description">Digital mystery quest</string>
