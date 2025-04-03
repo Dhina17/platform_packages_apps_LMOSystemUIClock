@@ -25,6 +25,12 @@ SPDX-FileCopyrightText = "2009-2025 The Android Open Source Project"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
+path = "app/src/main/res/font/albertsans.ttf"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2023 The Albert Sans Project Authors (https://github.com/usted/Albert-Sans)"
+SPDX-License-Identifier = "OFL-1.1"
+
+[[annotations]]
 path = "app/src/main/res/font/blaka.ttf"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2019 The Blaka Project Authors (https://github.com/Gue3bara/Blaka)"

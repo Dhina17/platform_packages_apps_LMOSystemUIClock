@@ -8,6 +8,9 @@
     <string name="app_name">LMOSystemUIClock</string>
 
     <!-- LMO Clocks list -->
+    <!-- Albert Sans -->
+    <string name="clock_albert_sans_name">Albert sans</string>
+    <string name="clock_albert_sans_description">Digital albert sans</string>
     <!-- Blaka -->
     <string name="clock_blaka_name">Blaka</string>
     <string name="clock_blaka_description">Digital blaka</string>
