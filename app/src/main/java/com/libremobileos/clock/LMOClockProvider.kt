@@ -80,14 +80,13 @@ class LMOClockProvider : ClockProviderPlugin {
             sysuiContext.resources,
             settings,
             false,
-            false,
             messageBuffers,
         )
     }
 
-    override fun getClockPickerConfig(id: ClockId): ClockPickerConfig {
-        if (!LMO_CLOCKS.contains(id) || !this::pluginContext.isInitialized) {
-            throw IllegalArgumentException("$id is unsupported by $TAG")
+    override fun getClockPickerConfig(settings: ClockSettings): ClockPickerConfig {
+        if (!LMO_CLOCKS.contains(settings.clockId) || !this::pluginContext.isInitialized) {
+            throw IllegalArgumentException("${settings.clockId} is unsupported by $TAG")
         }
 
         val thumbnail = ResourcesCompat.getDrawable(
@@ -100,7 +99,7 @@ class LMOClockProvider : ClockProviderPlugin {
         //       with proper clock names and description.
         //       right now, plugin is broken when using plugin resources.
         return ClockPickerConfig(
-            id,
+            settings.clockId.toString(),
             "Default clock",
             "Default clock description",
             // TODO(b/352049256): Update placeholder to actual resource
