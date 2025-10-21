@@ -5,7 +5,7 @@ LMOSystemUIClock is the default AOSP clock plugin but with different font styles
 ## Build and Installation
 - You can build this project easily with Android Studio.
 - For testing, your device's Android version should match the plugin version.
-  For example, the `fifteen-qpr2` branch will support devices running Android 15 QPR2 only.
+  For example, the `sixteen-qpr0` branch will support devices running Android 16 QPR0 only.
 - **Note:** This plugin should be signed with the platform key.
 - In Android Studio, it will be signed with the AOSP test platform key by default.
 

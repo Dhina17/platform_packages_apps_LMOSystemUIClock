@@ -7,18 +7,15 @@
 package com.libremobileos.clock
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import androidx.core.content.res.ResourcesCompat
 import com.android.systemui.plugins.annotations.Requires
 import com.android.systemui.plugins.clocks.ClockController
-import com.android.systemui.plugins.clocks.ClockId
 import com.android.systemui.plugins.clocks.ClockMessageBuffers
 import com.android.systemui.plugins.clocks.ClockMetadata
 import com.android.systemui.plugins.clocks.ClockPickerConfig
 import com.android.systemui.plugins.clocks.ClockProviderPlugin
 import com.android.systemui.plugins.clocks.ClockSettings
-import kotlin.collections.contains
 
 private val TAG = LMOClockProvider::class.simpleName
 
@@ -55,7 +52,6 @@ class LMOClockProvider : ClockProviderPlugin {
     private lateinit var sysuiContext: Context
 
     override fun onCreate(sysuiCtx: Context, pluginCtx: Context) {
-        Log.i(TAG, "onCreate")
         pluginContext = pluginCtx
         sysuiContext = sysuiCtx
     }
@@ -79,7 +75,6 @@ class LMOClockProvider : ClockProviderPlugin {
             pluginContext.resources,
             sysuiContext.resources,
             settings,
-            false,
             messageBuffers,
         )
     }
@@ -104,6 +99,9 @@ class LMOClockProvider : ClockProviderPlugin {
             "Default clock description",
             // TODO(b/352049256): Update placeholder to actual resource
             thumbnail,
+            isReactiveToTone = true,
+            axes = emptyList(),
+            presetConfig = null,
         )
     }
 }
